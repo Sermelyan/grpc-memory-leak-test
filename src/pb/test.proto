@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package test;
+
+import "google/protobuf/timestamp.proto";
+
+message Ping {
+  repeated string text = 1;
+  google.protobuf.Timestamp created = 2;
+}
+
+message Pong { google.protobuf.Timestamp accepted = 2; }
+
+service Test {
+  rpc Req(Ping) returns (Pong) {}
+}
